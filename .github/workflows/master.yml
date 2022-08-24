@@ -7,6 +7,14 @@ on:
     branches: [ main ]
 
 jobs:
+  container:
+    runs-on: ubuntu-latest
+    container: node:latest
+    steps:
+      - run: |
+          echo This job does specify a container.
+          echo It runs in the container instead of the VM.
+        name: Run in container - testing
   build:
     name: Run Web App
     runs-on: ubuntu-latest
@@ -26,3 +34,4 @@ jobs:
         run: |
           echo "Deploy Web App"
           sleep 10s
+      
